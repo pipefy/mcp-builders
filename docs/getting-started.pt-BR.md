@@ -25,6 +25,8 @@ claude mcp add --transport http --scope user --client-id pipefy-mcp pipefy https
 
 Já instalou o plugin `pipefy` do toolkit? Então você já tem o servidor. Não adicione um segundo, e pule para o passo 3.
 
+Clonou o repositório em vez de instalar? O mesmo `.mcp.json` está na raiz, então rodar `claude` dentro do seu clone oferece o servidor como servidor de projeto. Aprove uma vez e você está conectado.
+
 **Cursor, Claude Desktop ou Codex.** Um script que instala a CLI, o servidor local e configura seu cliente:
 
 ```sh
