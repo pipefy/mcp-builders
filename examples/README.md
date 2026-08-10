@@ -1,6 +1,6 @@
 # Reference skills
 
-These two skills are copies of skills shipping in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/tree/main/skills). They are here so you can read the standard your submission is measured against, and so that installing this repository as a plugin gives you something working on the first try.
+These two skills are copies of skills shipping in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/tree/main/skills). They are here so you can read the standard your submission is measured against without leaving the repository. The toolkit has [many more](https://github.com/pipefy/ai-toolkit/tree/main/skills), and reading the ones near your process is worth the detour.
 
 | Skill | Lines | What it does |
 |-------|-------|--------------|

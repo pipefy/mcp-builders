@@ -31,14 +31,13 @@ Registration: [use.pipefy.com/mcp-builders](https://use.pipefy.com/mcp-builders)
 
 ## How to participate
 
-**1. Get set up in two commands.** In Claude Code:
+**1. Install the toolkit.** The Pipefy MCP server, the CLI, and the skill catalog all live in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit#installation), which is where you install from and where the instructions are kept current. Shortest route if you are in Claude Code:
 
-```text
-/plugin marketplace add pipefy/mcp-builders
-/plugin install mcp-builders@mcp-builders
+```bash
+claude mcp add --transport http --scope user --client-id pipefy-mcp pipefy https://mcp.pipefy.com/mcp
 ```
 
-That connects the Pipefy MCP server and installs the two reference skills, so you can start driving Pipefy from your assistant right away. Complete the browser login when prompted. On another client, or if you want the full local tool surface with the CLI, follow [Getting started](docs/getting-started.md) instead.
+Other clients, the local install, and the CLI are covered in [Getting started](docs/getting-started.md).
 
 **2. Build and test your skill in the toolkit.** Copy the [skill template](template/SKILL.md), write your instructions, and run them for real against a Pipefy organization you control. A skill that has never run is not a skill.
 
@@ -57,7 +56,7 @@ submissions/<your-github-handle>/<skill-name>/
 
 `SKILL.md` follows the [template](template/SKILL.md), which is the same format used by the skills already shipping in the Pipefy AI Toolkit. `EVIDENCE.md` is short: the problem, what the skill built in Pipefy, and a screenshot or transcript of it running. Evidence is 15 percent of your score, and it is what separates a skill that works from a skill that reads well.
 
-Two real skills are included as reference: [pipefy-process-design](skills/pipefy-process-design/SKILL.md) and [pipefy-process-intelligence](skills/pipefy-process-intelligence/SKILL.md). Both ship in the toolkit today.
+Two real skills are included as reference: [pipefy-process-design](examples/pipefy-process-design/SKILL.md) and [pipefy-process-intelligence](examples/pipefy-process-intelligence/SKILL.md). Both ship in the toolkit today.
 
 ## How submissions are judged
 
@@ -81,18 +80,9 @@ The full rubric, including what disqualifies a submission, is public in [docs/ju
 | Post your skill | [Submission issue](../../issues/new?template=submit-skill.yml) or a pull request here |
 | Ask a question | [Discussions](../../discussions) or an [issue](../../issues/new?template=question.yml) |
 
-This repository holds the program and the submissions. The plugin here is a shortcut that wires up the hosted MCP server and the reference skills. All the actual code, the server, the CLI, and the SDK, lives in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit).
+This repository holds the program and the submissions, and nothing else. There is no server here and nothing to install. The MCP server, the CLI, the SDK, and the full skill catalog live in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit), which is the only place install instructions are maintained.
 
-### Prefer to work only in the toolkit?
-
-That works. Install the toolkit plugin instead and use this repository as reference:
-
-```text
-/plugin marketplace add pipefy/ai-toolkit
-/plugin install pipefy
-```
-
-You get the full local tool surface, the `pipefy` CLI, and the whole skill catalog. Read [`skills/`](https://github.com/pipefy/ai-toolkit/tree/main/skills) there for more examples than the two here, write your skill in your own clone, and come back only to post it. Install one Pipefy MCP server, not both.
+The practical shape of that: you install and work in the toolkit, you read [its skills](https://github.com/pipefy/ai-toolkit/tree/main/skills) for reference, and you come here to read the rules and post your submission.
 
 ## Frequently asked questions
 
