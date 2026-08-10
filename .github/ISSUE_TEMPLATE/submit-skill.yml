@@ -1,0 +1,98 @@
+name: Submit a skill / Enviar uma skill
+description: Post your skill without using git. We turn it into a pull request for you.
+title: "[Skill] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to submit a skill without touching git. We convert it into a pull request with you as the author.
+
+        Use este formulário para enviar sua skill sem mexer em git. A gente converte em pull request com você como autor.
+
+        Before you start / Antes de começar:
+        - Your skill must have run for real in Pipefy. / Sua skill precisa ter rodado de verdade no Pipefy.
+        - Never paste tokens, API keys, real organization or pipe IDs, customer names, or personal data. / Nunca cole tokens, chaves de API, IDs reais de organização ou pipe, nomes de clientes ou dados pessoais.
+        - Read [Writing a skill](../blob/main/docs/writing-a-skill.md) and the [rubric](../blob/main/docs/judging.md) first.
+
+  - type: input
+    id: skill-name
+    attributes:
+      label: Skill name / Nome da skill
+      description: kebab-case, describes the action. Becomes the folder name. / kebab-case, descreve a ação. Vira o nome da pasta.
+      placeholder: invoice-approval-flow
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language / Idioma
+      options:
+        - English
+        - Português
+    validations:
+      required: true
+
+  - type: textarea
+    id: skill
+    attributes:
+      label: SKILL.md
+      description: Paste the complete content, including the YAML frontmatter. / Cole o conteúdo completo, incluindo o frontmatter YAML.
+      render: markdown
+      placeholder: |
+        ---
+        name: invoice-approval-flow
+        description: >
+          Use this skill when...
+        tags: [pipefy, finance, approvals]
+        ---
+
+        # Invoice approval flow
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem / O problema
+      description: What was painful, manual, or slow before this skill. Who felt it, and how often. / O que era doloroso, manual ou lento antes desta skill. Quem sentia, e com que frequência.
+    validations:
+      required: true
+
+  - type: textarea
+    id: built
+    attributes:
+      label: What the skill built / O que a skill construiu
+      description: The pipe, phases, automations, or analysis it produced when you ran it. / O pipe, as fases, as automações ou a análise que ela produziu quando você rodou.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proof
+    attributes:
+      label: Proof / Prova
+      description: Drag a screenshot in, or paste the transcript of your assistant running the skill. Blur any sensitive data. / Arraste um print, ou cole o transcript do seu assistente executando a skill. Borre dados sensíveis.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fixes
+    attributes:
+      label: What you had to fix / O que você teve que corrigir
+      description: What went wrong on the first run and how you changed the skill. / O que deu errado na primeira execução e como você mudou a skill.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmations / Confirmações
+      options:
+        - label: I ran this skill in a real Pipefy organization. / Eu rodei esta skill em uma organização Pipefy real.
+          required: true
+        - label: There are no tokens, keys, real IDs, customer names, or personal data in what I pasted. / Não há tokens, chaves, IDs reais, nomes de clientes ou dados pessoais no que colei.
+          required: true
+        - label: I wrote this skill, and I agree it is published under Apache 2.0 with credit to me. / Eu escrevi esta skill, e concordo que ela seja publicada sob Apache 2.0 com crédito a mim.
+          required: true

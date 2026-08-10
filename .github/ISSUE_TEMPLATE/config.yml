@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Register for the program / Inscrever-se no programa
+    url: https://use.pipefy.com/mcp-builders
+    about: Sign up for MCP Builders by Pipefy. / Faça sua inscrição no MCP Builders by Pipefy.
+  - name: Pipefy AI Toolkit
+    url: https://github.com/pipefy/ai-toolkit
+    about: Install the MCP server, CLI, and SDK. Report toolkit bugs here. / Instale o servidor MCP, a CLI e o SDK. Reporte bugs do toolkit lá.
+  - name: Discussions
+    url: https://github.com/pipefy/mcp-builders/discussions
+    about: Open-ended conversation with other builders. / Conversa aberta com outras pessoas do programa.

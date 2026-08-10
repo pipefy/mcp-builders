@@ -1,0 +1,24 @@
+name: Question / Dúvida
+description: Ask about the program, the skill format, or the toolkit.
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Questions about installing or using the MCP server belong in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/issues). Questions about the program, the skill format, submissions, and judging belong here.
+
+        Dúvidas sobre instalar ou usar o servidor MCP são no [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/issues). Dúvidas sobre o programa, o formato de skill, submissões e avaliação são aqui.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question / Sua dúvida
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Contexto
+      description: What you tried, and what happened. / O que você tentou, e o que aconteceu.
