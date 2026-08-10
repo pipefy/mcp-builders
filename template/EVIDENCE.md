@@ -14,7 +14,11 @@ Keep this short. Four answers, half a page is plenty.
 
 [A screenshot of the result in Pipefy, or the transcript of your assistant executing the skill. Put images in `assets/` and link them here.]
 
+Link an image like this, with the file in `assets/`:
+
+```markdown
 ![Result in Pipefy](assets/result.png)
+```
 
 ## What you had to fix
 

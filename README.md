@@ -92,7 +92,7 @@ This repository holds the program and the submissions. It does not hold the MCP 
 
 ## Language
 
-This repository is maintained in English and Portuguese. Every document has a `.pt-BR.md` twin, and both are kept in sync.
+The README, the contributing guide, and everything under `docs/` are maintained in English and Portuguese, as `.md` and `.pt-BR.md` pairs kept in sync. The issue and pull request templates carry both languages in the same file.
 
 ## Code of conduct and license
 

@@ -92,7 +92,7 @@ Este repositório guarda o programa e as submissões. Ele não guarda o servidor
 
 ## Idioma
 
-Este repositório é mantido em inglês e português. Todo documento tem um par `.pt-BR.md`, e os dois são mantidos em sincronia.
+O README, o guia de contribuição e tudo que está em `docs/` são mantidos em inglês e português, como pares `.md` e `.pt-BR.md` em sincronia. Os templates de issue e de pull request trazem os dois idiomas no mesmo arquivo.
 
 ## Código de conduta e licença
 
