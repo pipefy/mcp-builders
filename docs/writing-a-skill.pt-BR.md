@@ -36,7 +36,7 @@ tags: [pipefy, financeiro, aprovacoes, automacoes]
 
 ## As seções obrigatórias
 
-**When to use.** Liste as intenções que devem acionar a skill e, em seguida, liste o que *não* deve acioná-la. A lista negativa importa tanto quanto a positiva. Veja como a [pipefy-process-design](../examples/pipefy-process-design/SKILL.md) abre: a primeira tabela dela é dedicada a explicar quando ela deve ser ignorada.
+**When to use.** Liste as intenções que devem acionar a skill e, em seguida, liste o que *não* deve acioná-la. A lista negativa importa tanto quanto a positiva. Veja como a [pipefy-process-design](../skills/pipefy-process-design/SKILL.md) abre: a primeira tabela dela é dedicada a explicar quando ela deve ser ignorada.
 
 **Prerequisites.** O que precisa existir antes do passo um. Nível de acesso, IDs, um pipe já criado, uma integração conectada.
 

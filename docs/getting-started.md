@@ -10,13 +10,20 @@ Claude Code is the recommended client and the best tested. Cursor, Claude Deskto
 
 ## 2. Connect the Pipefy MCP server
 
-**Claude Code, fastest path.** One command, no local Python:
+**Claude Code, fastest path.** Install this repository as a plugin. It ships an `.mcp.json` pointing at the hosted Pipefy server, so the connection comes with it and there is no local Python to install:
+
+```text
+/plugin marketplace add pipefy/mcp-builders
+/plugin install mcp-builders@mcp-builders
+```
+
+Finish the browser login when prompted. If you would rather wire the server yourself, this is the equivalent single command:
 
 ```bash
 claude mcp add --transport http --scope user --client-id pipefy-mcp pipefy https://mcp.pipefy.com/mcp
 ```
 
-Finish the browser login when prompted. If the client says it needs authentication, run `claude mcp login pipefy`.
+Already installed the `pipefy` plugin from the toolkit? Then you already have the server. Do not add a second one, and skip to step 3.
 
 **Cursor, Claude Desktop, or Codex.** One script that installs the CLI, the local server, and wires your client config:
 
@@ -46,8 +53,8 @@ Build in an organization where a broken pipe does not hurt anyone. If your produ
 
 Before writing anything, read these two. They ship in the toolkit today and they are the standard your submission is measured against:
 
-- [pipefy-process-design](../examples/pipefy-process-design/SKILL.md), 121 lines, a consulting skill that helps a user design a process.
-- [pipefy-process-intelligence](../examples/pipefy-process-intelligence/SKILL.md), 136 lines, an analyst skill that diagnoses an existing pipe and improves it in rounds.
+- [pipefy-process-design](../skills/pipefy-process-design/SKILL.md), 121 lines, a consulting skill that helps a user design a process.
+- [pipefy-process-intelligence](../skills/pipefy-process-intelligence/SKILL.md), 136 lines, an analyst skill that diagnoses an existing pipe and improves it in rounds.
 
 Notice what they have in common: they say when *not* to fire, they name the exact tools they use, and every step is something an agent can actually execute.
 

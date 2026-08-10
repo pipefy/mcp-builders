@@ -10,13 +10,20 @@ O Claude Code é o cliente recomendado e o mais testado. Cursor, Claude Desktop 
 
 ## 2. Conecte o servidor MCP do Pipefy
 
-**Claude Code, caminho mais rápido.** Um comando, sem Python local:
+**Claude Code, caminho mais rápido.** Instale este repositório como plugin. Ele traz um `.mcp.json` apontando para o servidor hospedado do Pipefy, então a conexão vem junto e não há Python local para instalar:
+
+```text
+/plugin marketplace add pipefy/mcp-builders
+/plugin install mcp-builders@mcp-builders
+```
+
+Conclua o login no navegador quando for solicitado. Se você preferir configurar o servidor na mão, este é o comando equivalente:
 
 ```bash
 claude mcp add --transport http --scope user --client-id pipefy-mcp pipefy https://mcp.pipefy.com/mcp
 ```
 
-Conclua o login no navegador quando for solicitado. Se o cliente disser que precisa de autenticação, rode `claude mcp login pipefy`.
+Já instalou o plugin `pipefy` do toolkit? Então você já tem o servidor. Não adicione um segundo, e pule para o passo 3.
 
 **Cursor, Claude Desktop ou Codex.** Um script que instala a CLI, o servidor local e configura seu cliente:
 
@@ -46,8 +53,8 @@ Construa em uma organização onde um pipe quebrado não prejudica ninguém. Se 
 
 Antes de escrever qualquer coisa, leia estas duas. Elas estão em produção no toolkit hoje, e são o padrão contra o qual sua submissão é medida:
 
-- [pipefy-process-design](../examples/pipefy-process-design/SKILL.md), 121 linhas, uma skill de consultoria que ajuda a pessoa a desenhar um processo.
-- [pipefy-process-intelligence](../examples/pipefy-process-intelligence/SKILL.md), 136 linhas, uma skill de análise que diagnostica um pipe existente e o melhora em rodadas.
+- [pipefy-process-design](../skills/pipefy-process-design/SKILL.md), 121 linhas, uma skill de consultoria que ajuda a pessoa a desenhar um processo.
+- [pipefy-process-intelligence](../skills/pipefy-process-intelligence/SKILL.md), 136 linhas, uma skill de análise que diagnostica um pipe existente e o melhora em rodadas.
 
 Repare no que as duas têm em comum: elas dizem quando *não* devem ser acionadas, nomeiam as ferramentas exatas que usam, e cada passo é algo que um agente consegue de fato executar.
 

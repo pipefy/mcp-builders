@@ -36,7 +36,7 @@ tags: [pipefy, finance, approvals, automations]
 
 ## The required sections
 
-**When to use.** List the user intents that should trigger the skill, and then list what should *not* trigger it. The negative list matters as much as the positive one. Look at how [pipefy-process-design](../examples/pipefy-process-design/SKILL.md) opens: it spends its first table explaining when to skip itself.
+**When to use.** List the user intents that should trigger the skill, and then list what should *not* trigger it. The negative list matters as much as the positive one. Look at how [pipefy-process-design](../skills/pipefy-process-design/SKILL.md) opens: it spends its first table explaining when to skip itself.
 
 **Prerequisites.** What has to exist before step one. Access level, IDs, a pipe that is already created, a connected integration.
 

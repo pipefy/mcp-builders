@@ -1,6 +1,6 @@
 # Reference skills
 
-These two skills are copies of skills shipping in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/tree/main/skills). They are here so you can read the standard your submission is measured against without leaving the repository.
+These two skills are copies of skills shipping in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit/tree/main/skills). They are here so you can read the standard your submission is measured against, and so that installing this repository as a plugin gives you something working on the first try.
 
 | Skill | Lines | What it does |
 |-------|-------|--------------|
@@ -12,3 +12,5 @@ Read them for the shape, not for the content. What to copy is the structure: a d
 Do not submit a renamed copy of either one. Building on top of them is welcome, and you should say so in your `EVIDENCE.md`.
 
 The canonical versions live in the toolkit and may change there. If the two ever disagree, the toolkit is right.
+
+Your own skill does not go here. Submissions go in [`submissions/`](../submissions), one folder per person. See [CONTRIBUTING.md](../CONTRIBUTING.md).

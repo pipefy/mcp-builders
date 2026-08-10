@@ -31,7 +31,14 @@ Registration: [use.pipefy.com/mcp-builders](https://use.pipefy.com/mcp-builders)
 
 ## How to participate
 
-**1. Set up the toolkit.** Install the Pipefy MCP server from the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit) and connect it to your AI client. Step by step in [Getting started](docs/getting-started.md).
+**1. Get set up in two commands.** In Claude Code:
+
+```text
+/plugin marketplace add pipefy/mcp-builders
+/plugin install mcp-builders@mcp-builders
+```
+
+That connects the Pipefy MCP server and installs the two reference skills, so you can start driving Pipefy from your assistant right away. Complete the browser login when prompted. On another client, or if you want the full local tool surface with the CLI, follow [Getting started](docs/getting-started.md) instead.
 
 **2. Build and test your skill in the toolkit.** Copy the [skill template](template/SKILL.md), write your instructions, and run them for real against a Pipefy organization you control. A skill that has never run is not a skill.
 
@@ -50,7 +57,7 @@ submissions/<your-github-handle>/<skill-name>/
 
 `SKILL.md` follows the [template](template/SKILL.md), which is the same format used by the skills already shipping in the Pipefy AI Toolkit. `EVIDENCE.md` is short: the problem, what the skill built in Pipefy, and a screenshot or transcript of it running. Evidence is 15 percent of your score, and it is what separates a skill that works from a skill that reads well.
 
-Two real skills are included as reference: [pipefy-process-design](examples/pipefy-process-design/SKILL.md) and [pipefy-process-intelligence](examples/pipefy-process-intelligence/SKILL.md). Both ship in the toolkit today.
+Two real skills are included as reference: [pipefy-process-design](skills/pipefy-process-design/SKILL.md) and [pipefy-process-intelligence](skills/pipefy-process-intelligence/SKILL.md). Both ship in the toolkit today.
 
 ## How submissions are judged
 

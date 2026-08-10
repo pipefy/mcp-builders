@@ -1,0 +1,10 @@
+{
+  "name": "mcp-builders",
+  "displayName": "MCP Builders by Pipefy",
+  "version": "1.0.0",
+  "description": "Everything you need to write a skill for the MCP Builders program: the Pipefy MCP server wired up, and the two reference skills to read before you start.",
+  "author": { "name": "Pipefy", "url": "https://github.com/pipefy" },
+  "homepage": "https://github.com/pipefy/mcp-builders",
+  "repository": "https://github.com/pipefy/mcp-builders",
+  "license": "Apache-2.0"
+}
