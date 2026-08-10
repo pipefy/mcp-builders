@@ -1,24 +1,23 @@
-name: Submissions
+name: Validate submissions
 
 on:
   pull_request:
     paths:
       - "submissions/**"
-      - "scripts/**"
+      - "scripts/validate_submission.py"
       - ".github/workflows/validate-submission.yml"
   push:
     branches: [main]
     paths:
       - "submissions/**"
-      - "examples/**"
-      - "scripts/build_marketplace.py"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -29,35 +28,5 @@ jobs:
       - name: Install PyYAML
         run: pip install --quiet pyyaml
 
-      - name: Validate submissions
+      - name: Validate
         run: python3 scripts/validate_submission.py
-
-  marketplace:
-    # Plugin metadata is generated from the submissions tree after merge, never
-    # in the pull request. Contributors write SKILL.md and EVIDENCE.md, nothing
-    # else, and two pull requests can never conflict over marketplace.json.
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Rebuild the marketplace
-        run: python3 scripts/build_marketplace.py
-
-      - name: Commit if anything changed
-        run: |
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "Marketplace already up to date."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Rebuild the plugin marketplace"
-          git push
