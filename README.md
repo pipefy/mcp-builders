@@ -81,7 +81,18 @@ The full rubric, including what disqualifies a submission, is public in [docs/ju
 | Post your skill | [Submission issue](../../issues/new?template=submit-skill.yml) or a pull request here |
 | Ask a question | [Discussions](../../discussions) or an [issue](../../issues/new?template=question.yml) |
 
-This repository holds the program and the submissions. It does not hold the MCP server, and there is nothing here to install. All code lives in the Pipefy AI Toolkit.
+This repository holds the program and the submissions. The plugin here is a shortcut that wires up the hosted MCP server and the reference skills. All the actual code, the server, the CLI, and the SDK, lives in the [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit).
+
+### Prefer to work only in the toolkit?
+
+That works. Install the toolkit plugin instead and use this repository as reference:
+
+```text
+/plugin marketplace add pipefy/ai-toolkit
+/plugin install pipefy
+```
+
+You get the full local tool surface, the `pipefy` CLI, and the whole skill catalog. Read [`skills/`](https://github.com/pipefy/ai-toolkit/tree/main/skills) there for more examples than the two here, write your skill in your own clone, and come back only to post it. Install one Pipefy MCP server, not both.
 
 ## Frequently asked questions
 

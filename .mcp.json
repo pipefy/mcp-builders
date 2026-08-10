@@ -2,7 +2,10 @@
   "mcpServers": {
     "pipefy": {
       "type": "http",
-      "url": "https://mcp.pipefy.com/mcp"
+      "url": "https://mcp.pipefy.com/mcp",
+      "oauth": {
+        "clientId": "pipefy-mcp"
+      }
     }
   }
 }

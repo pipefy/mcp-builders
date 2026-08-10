@@ -81,7 +81,18 @@ O rubric completo, incluindo o que desqualifica uma submissão, está público e
 | Publicar sua skill | [Issue de submissão](../../issues/new?template=submit-skill.yml) ou um pull request aqui |
 | Tirar uma dúvida | [Discussions](../../discussions) ou uma [issue](../../issues/new?template=question.yml) |
 
-Este repositório guarda o programa e as submissões. Ele não guarda o servidor MCP, e não há nada aqui para instalar. Todo o código vive no Pipefy AI Toolkit.
+Este repositório guarda o programa e as submissões. O plugin daqui é um atalho que já conecta o servidor MCP hospedado e instala as skills de referência. Todo o código de verdade, o servidor, a CLI e o SDK, vive no [Pipefy AI Toolkit](https://github.com/pipefy/ai-toolkit).
+
+### Prefere ficar só no toolkit?
+
+Funciona. Instale o plugin do toolkit e use este repositório como referência:
+
+```text
+/plugin marketplace add pipefy/ai-toolkit
+/plugin install pipefy
+```
+
+Você ganha o conjunto completo de ferramentas locais, a CLI `pipefy` e todo o catálogo de skills. Leia [`skills/`](https://github.com/pipefy/ai-toolkit/tree/main/skills) lá, que tem muito mais exemplos do que as duas daqui, escreva sua skill no seu próprio clone, e volte aqui só para publicar. Instale um servidor MCP do Pipefy, não os dois.
 
 ## Perguntas frequentes
 
