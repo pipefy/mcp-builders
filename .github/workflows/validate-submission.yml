@@ -1,11 +1,11 @@
 name: Validate submissions
 
+# No paths filter on pull_request on purpose. This check is a required status
+# check on main, and a required check that never runs leaves the pull request
+# waiting forever. With no filter it always runs, and it exits clean when a
+# pull request touches no submission.
 on:
   pull_request:
-    paths:
-      - "submissions/**"
-      - "scripts/validate_submission.py"
-      - ".github/workflows/validate-submission.yml"
   push:
     branches: [main]
     paths:
