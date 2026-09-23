@@ -91,9 +91,11 @@ then verify with `get_automation` on a working rule.
    ```
 
 2. **Discover event × action.** The action id is **`run_a_formula`**
-   (UI: *Aplique uma fórmula*). On the hosted catalog its
-   `triggerEvents` are `field_updated` and `sla_based` — **not**
-   `card_created`. Confirm `run_a_formula` is enabled on the pipe.
+   (UI: *Aplique uma fórmula*). Catalog `triggerEvents` (`field_updated`,
+   `sla_based`) is the builder's **suggestion** list, not a compatibility
+   gate. `eventsBlacklist` is the gate — today only `scheduler`.
+   `card_created` + `run_a_formula` is accepted. Prefer `field_updated`
+   when the stamp should follow a due-date or number change.
 
    MCP:
    ```
@@ -116,15 +118,15 @@ then verify with `get_automation` on a working rule.
    get_automation automation_id=<id>
    ```
 
-   `run_a_formula` needs `field_updated` (or `sla_based`) plus
-   `event_params.triggerFieldIds` in **camelCase** (as `get_automation`
-   returns). `trigger_field_ids` is rejected: "Field is not defined on
-   AutomationEventParamsInput". Do not send `action_id=update_card_field`
-   — that stamps the formula *text*, it does not run it.
+   For `field_updated`, pass `event_params.triggerFieldIds` in **camelCase**
+   (as `get_automation` returns). `trigger_field_ids` is rejected: "Field
+   is not defined on AutomationEventParamsInput". `card_created` needs no
+   trigger-field list. Do not send `action_id=update_card_field` — that
+   stamps the formula *text*, it does not run it.
 
    CLI:
    ```bash
-   pipefy automation create --pipe <pipe_id> --name "<name>" --trigger field_updated --action run_a_formula --active false
+   pipefy automation create --pipe <pipe_id> --name "<name>" --event-id field_updated --action-id run_a_formula --no-active --extra '{"event_params":{"triggerFieldIds":["<source_internal_id>"]},"action_params":{"field_map":[{"fieldId":"<dest_internal_id>","inputMode":"copy_from","value":"<formula>"}]}}'
    pipefy automation get <id>
    ```
 
@@ -265,7 +267,11 @@ CONCAT(
   IF(
     WEEKDAY(%{due_date}) = 7,
     "FIM DE SEMANA | ",
-    ""
+    IF(
+      WEEKDAY(%{due_date}) = 1,
+      "FIM DE SEMANA | ",
+      ""
+    )
   ),
   IF(
     INTERVAL_WEEKDAYS(%{created_at}, %{due_date}) <= 1,
@@ -283,6 +289,9 @@ CONCAT(
 )
 ```
 
+`WEEKDAY` is 7 on Saturday and 1 on Sunday — flag both, or a Sunday
+deadline is not treated as weekend.
+
 Power the agent should copy: nested `IF`, `WEEKDAY` on `%{due_date}`,
 `INTERVAL_WEEKDAYS` on `%{created_at}` / `%{automation_event_execution_datetime}`,
 and `"%{assignees}"` (quoted — CONCAT, texts including fields). None of
@@ -293,8 +302,7 @@ this appears in `get_automation_event_attributes`. Do not send this to iPaaS.
 - `action_id` is `run_a_formula` (UI: *Aplique uma fórmula*), not
   `update_card_field`.
 - `fieldId` is a numeric `internal_id`.
-- `get_automation` shows the formula in `action_params.field_map` and
-  `event_id` is `field_updated` (or `sla_based`).
+- `get_automation` shows the formula in `action_params.field_map`.
 - Field count in the expression is ≤ 20.
 - The agent did not send the user to iPaaS for same-card math.
 
@@ -305,7 +313,7 @@ this appears in `get_automation_event_attributes`. Do not send this to iPaaS.
 | Field unchanged | Slug in `fieldId`, typo in `%{…}`, or missing quotes on a text/field inside CONCAT/IF/COUNT | `internal_id`; quote `"%{assignees}"` in CONCAT; do not quote numeric args |
 | `get_automation_event_attributes` has one row | Official catalog is event-scoped and incomplete | Use the tables here; verify via `get_automation` |
 | Destination shows `IF(…, SUM(…), …)` as text | Used `update_card_field` (copy, no formula engine) | Recreate with `action_id=run_a_formula` |
-| Create rejected | Unknown `fieldId`, `card_created` + `run_a_formula`, or snake_case `trigger_field_ids` | `run_a_formula` only allows `field_updated` / `sla_based`; use `triggerFieldIds` |
+| Create rejected | Unknown `fieldId` or snake_case `trigger_field_ids` | Numeric `internal_id`; `event_params.triggerFieldIds` (camelCase). `card_created` is allowed |
 | iPaaS suggested for SUM/IF | Agent routed to the wrong skill | Stay on native `run_a_formula` |
 | `update_automation` ignores `active` | `active` is not top-level on update | `extra_input={"active": true}` |
 | Trig looks "wrong" | Argument was degrees | Convert to radians or avoid SIN(90) as a degrees test |
@@ -314,6 +322,6 @@ this appears in `get_automation_event_attributes`. Do not send this to iPaaS.
 
 ## See also
 
-- [skills/automations/pipefy-automations/SKILL.md](../pipefy-automations/SKILL.md) — create/update the rule, conditions, AI prompts.
-- [docs/mcp/tools/automations-and-ai.md](../../../docs/mcp/tools/automations-and-ai.md) — official token subset and `field_map` shape.
-- [skills/ipaas/pipefy-ipaas/SKILL.md](../../ipaas/pipefy-ipaas/SKILL.md) — when an external app is required.
+- [pipefy-automations](https://github.com/pipefy/ai-toolkit/blob/main/skills/automations/pipefy-automations/SKILL.md) — create/update the rule, conditions, AI prompts.
+- [automations-and-ai.md](https://github.com/pipefy/ai-toolkit/blob/main/docs/mcp/tools/automations-and-ai.md) — official token subset and `field_map` shape.
+- [pipefy-ipaas](https://github.com/pipefy/ai-toolkit/blob/main/skills/ipaas/pipefy-ipaas/SKILL.md) — when an external app is required.

@@ -1,7 +1,5 @@
 # Evidence
 
-Keep this short. Four answers, half a page is plenty.
-
 ## The problem
 
 Same-card math (SUM, IF, weekday, SLA digest) was being sent to iPaaS,
@@ -33,15 +31,13 @@ Hosted MCP: `get_automation_actions` (confirm `run_a_formula`) →
 `get_automation_event_attributes` (one row) → `create_automation`
 `active=false` `action_id=run_a_formula` → `get_automation`.
 
-Screenshot (blur pipe id and personal names; toggle **inactive**; action
-must read **Aplique uma fórmula**, not Atualizar campo):
-
 ![Inactive run_a_formula SLA digest](assets/01-inactive-concat-if-rule.png)
 
 ## What you had to fix
 
-`update_card_field` does not apply formulas. `run_a_formula` rejects
-`card_created` (`triggerEvents` are `field_updated` / `sla_based`).
+`update_card_field` does not apply formulas. Catalog `triggerEvents` is a
+suggestion list, not a gate — `card_created` + `run_a_formula` is
+accepted; `eventsBlacklist` is `scheduler` only.
 `event_params.trigger_field_ids` (snake_case) is rejected; use
 `triggerFieldIds`. The live proof is the skill's SLA digest, not a
 one-line IF.
